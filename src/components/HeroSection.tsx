@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, Heart, ArrowRight, Sparkles } from 'lucide-react';
+import { Calendar, Heart, ArrowRight, Sparkles, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -12,8 +12,50 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center px-4 py-10 bg-gradient-to-br from-purple-50 via-white to-blue-50 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 overflow-hidden">
+      {/* Header */}
+      <header className="relative z-20 px-4 py-6">
+        <nav className="container mx-auto max-w-7xl flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <Calendar className="h-8 w-8 text-purple-600" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              FlowTime
+            </span>
+          </div>
+          
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#features" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">Features</a>
+            <a href="#pricing" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">Pricing</a>
+            <a href="#about" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">About</a>
+          </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/signin')}
+              className="hidden sm:flex text-gray-700 hover:text-purple-600"
+            >
+              Sign In
+            </Button>
+            <Button 
+              onClick={handleStartFree}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-xl shadow-lg"
+            >
+              Start FREE
+            </Button>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Content */}
+      <div className="flex items-center px-4 py-10 min-h-[calc(100vh-120px)]">
+        {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -103,6 +145,7 @@ const HeroSection = () => {
             <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
