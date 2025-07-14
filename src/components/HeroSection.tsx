@@ -1,11 +1,30 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar, Heart, ArrowRight, Sparkles, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) {
+        setIsHeaderVisible(currentScrollY < lastScrollY);
+      } else {
+        setIsHeaderVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleStartFree = () => {
     navigate('/signup');
@@ -14,7 +33,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 overflow-hidden">
       {/* Header */}
-      <header className="relative z-20 px-4 py-6">
+      <header className={`fixed top-0 left-0 right-0 z-50 px-4 py-6 bg-white/90 backdrop-blur-sm border-b border-purple-100/50 transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <nav className="container mx-auto max-w-7xl flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
