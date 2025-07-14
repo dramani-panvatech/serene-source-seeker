@@ -116,28 +116,28 @@ const FeaturesSection = () => {
         </div>
 
         <Tabs defaultValue="core" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-12 bg-white shadow-lg rounded-xl">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-12 bg-white shadow-lg rounded-xl p-1 h-auto">
             <TabsTrigger 
               value="core" 
-              className="ml-3 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium py-3 px-4 text-sm md:text-base"
             >
               Core Features
             </TabsTrigger>
             <TabsTrigger 
               value="analytics" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium py-3 px-4 text-sm md:text-base"
             >
               Analytics
             </TabsTrigger>
             <TabsTrigger 
               value="integrations" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium py-3 px-4 text-sm md:text-base"
             >
               Integrations
             </TabsTrigger>
             <TabsTrigger 
               value="enterprise" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-medium py-3 px-4 text-sm md:text-base"
             >
               Enterprise
             </TabsTrigger>
